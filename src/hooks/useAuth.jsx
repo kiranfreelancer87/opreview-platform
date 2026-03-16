@@ -3,16 +3,25 @@ import { participantData } from '../data/recordings';
 
 const AuthContext = createContext(null);
 
+function getStoredUser() {
+  try {
+    const stored = sessionStorage.getItem('opreview_user');
+    return stored ? JSON.parse(stored) : null;
+  } catch {
+    return null;
+  }
+}
+
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(getStoredUser);
   const [loading, setLoading] = useState(false);
 
   const login = useCallback(async (participantId, accessCode) => {
     setLoading(true);
-    // Simulate auth delay
     await new Promise(r => setTimeout(r, 1200));
     if (participantId && accessCode) {
       setUser(participantData);
+      sessionStorage.setItem('opreview_user', JSON.stringify(participantData));
       setLoading(false);
       return true;
     }
@@ -22,6 +31,7 @@ export function AuthProvider({ children }) {
 
   const logout = useCallback(() => {
     setUser(null);
+    sessionStorage.removeItem('opreview_user');
   }, []);
 
   return (

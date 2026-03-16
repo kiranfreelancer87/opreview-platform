@@ -81,7 +81,7 @@ export default function PlayerPage() {
   const realAnnotationIdx = activeAnnotationIdx >= 0 ? rec.annotations.length - 1 - activeAnnotationIdx : -1;
 
   return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: 'var(--surface-ground)' }}>
+    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: 'var(--surface-ground)', height: '100%', overflow: 'hidden' }}>
       <TopBar
         breadcrumbs={[
           { label: 'Dashboard', onClick: () => navigate('/dashboard') },
@@ -90,7 +90,7 @@ export default function PlayerPage() {
         ]}
       />
 
-      <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
+      <div style={{ flex: 1, display: 'flex', overflow: 'hidden', minHeight: 0 }}>
         {/* LEFT: Chapters */}
         <div style={{
           width: 280,
@@ -190,7 +190,7 @@ export default function PlayerPage() {
         </div>
 
         {/* CENTER: Video */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'auto' }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'auto', minWidth: 0 }}>
           <div style={{ padding: '20px 28px' }}>
             {/* Video Player */}
             <div
