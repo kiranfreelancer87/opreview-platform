@@ -22,16 +22,16 @@ export default function Sidebar({ collapsed, setCollapsed }) {
   return (
     <aside style={{
       width: collapsed ? 'var(--sidebar-collapsed)' : 'var(--sidebar-width)',
+      minWidth: collapsed ? 'var(--sidebar-collapsed)' : 'var(--sidebar-width)',
       background: 'var(--surface-sidebar)',
       display: 'flex',
       flexDirection: 'column',
-      transition: 'width var(--transition-slow)',
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      bottom: 0,
+      transition: 'width var(--transition-slow), min-width var(--transition-slow)',
+      position: 'relative',
+      height: '100vh',
       zIndex: 50,
       overflow: 'hidden',
+      flexShrink: 0,
     }}>
       {/* Brand */}
       <div style={{

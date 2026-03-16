@@ -10,8 +10,7 @@ export default function AppLayout() {
       <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
       <main style={{
         flex: 1,
-        marginLeft: collapsed ? 'var(--sidebar-collapsed)' : 'var(--sidebar-width)',
-        transition: 'margin-left var(--transition-slow)',
+        minWidth: 0,
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
