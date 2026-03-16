@@ -4,18 +4,15 @@ import {
   LayoutDashboard, Library, Play, Settings, Shield,
   LogOut, ChevronLeft, ChevronRight, MonitorPlay
 } from 'lucide-react';
-import { useState } from 'react';
-
 const navItems = [
   { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { path: '/library', label: 'Case Library', icon: Library },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ collapsed, setCollapsed }) {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, logout } = useAuth();
-  const [collapsed, setCollapsed] = useState(false);
 
   const handleLogout = () => {
     logout();
