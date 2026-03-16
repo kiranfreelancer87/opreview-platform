@@ -1,0 +1,37 @@
+@import './styles/design-tokens.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background: var(--surface-ground);
+  line-height: var(--leading-normal);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a { color: var(--brand-primary); text-decoration: none; }
+button { font-family: var(--font-sans); cursor: pointer; border: none; background: none; font-size: var(--text-base); }
+input, select, textarea { font-family: var(--font-sans); font-size: var(--text-base); }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-tertiary); }
+
+::selection { background: var(--brand-primary); color: white; }
